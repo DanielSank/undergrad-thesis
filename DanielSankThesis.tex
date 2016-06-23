@@ -1,0 +1,266 @@
+\documentclass{report}
+\title{Toward Studies of Stochastic Resonance using Dual Optical Traps}
+\author{Daniel Sank, Yale University: Advisor Simon Mochrie}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\chapter{Theory}
+
+\section{What is Stochastic Resonance?}
+
+Stochastic resonance is a phenomenon characteristic of any externally driven, bistable system with internal damping and thermal (random) fluctuations. See figure 1 for a general schematic. We regard the input to the system to be the driving force and the output to be the coordinate of the system: $+c$ for the right well and $-c$ for the left (we are assuming that the system never spends an appreciable amount of time at positions between potential wells, an assusption to which we will return when analyzing our experimental data). In the absence of a driving force (signal=zero) the system makes thermally excited transitions over the potential barrier. Transitions, at all frequencies, that occur in this case of zero driving constitute the ``noise.'' When the driving is nonzero, transitions at the driving frequency constitute our ``signal.'' Now, in the \emph{absence} of thermal fluctuations, if the damped system resides in one of the potential minima and is driven only very weakly, then it will never make a transition over the potential barrier. The signal is therefore zero. The introduction of thermal fluctuations on top of the weak driving force allows for the system's kinetic energy to occasionally attain high enough values to make transitions over the barrier. Therefore, increasing the noise in this case \emph{increases} the signal. For a given drive frequency and amplitude define the signal to noise ratio as the system response at the drive frequency with the drive turned on divided by the system response at the drive frequency with the drive turned off. It is clear then that the signal to noise ratio actually increases as the noise power is increased up from zero. Of course, as the noise power is increased past a certain point the signal to noise ratio will decline. Therefore, there must be some nonzero intermediate value of the noise power for which the signal to noise ratio of the system is maximized. This slightly un-intuitive situation is referred to as stochastic resonance. Mathematical details are discussed in a very accessable paper by McNamara and Wiesenfeld $^{(2)}$.
+
+\section{Optical Tweezers System for Stochastic Resonance}
+
+Optical traps could provide a means of studying stochastic resonance as all of the necessary ingredients are automatically in place. Our system includes two laser beams which are focused through a microscope objective to form two optical traps inside a glass observation cell filled with water. See figure 4. Polystyrene beads suspended in the cell experience optical gradient forces due to two focused laser beams.$^{(3)}$ When the two laser foci are placed closely together the bead experiences a bistable potential landscape in space. Damping and noise are provided by the the water, and a periodic driving force is supplied by vibrating a piezoelectrically transduced translation stage which supports the observation cell.
+
+\section{Dynamics}
+
+\subsection{Kramers Hopping}
+Newton's equation of motion for a trapped bead may be written as a Lengevin equation,
+\begin{displaymath}
+m\ddot{x}(t) = -\frac{dU}{dx} - \gamma \dot{x}(t) + \eta(t)
+\end{displaymath}
+where $U(x)$ is the potential felt by the bead due to the trapping lasers, $\gamma$ is the coefficient of friction of the bead in water, and $\eta(t)$ represents random force kicks supplied by water molecules. $\frac{m}{\gamma}$ sets a characteristic relaxation time for the bead and is on the order of $10^{-8}$ seconds for our system. This timescale is much shorter than any other relevent timescale in our experiments so we are working in the highly overdamped regime. Kramers showed in (5) that in this regime the average time that the system waits in a potential well before making a thermally excited trasition over the barrier is,\footnote{When reading Kramers's original paper beware that he uses the symbol $\omega$ to denote ``cycles per second'' frequencies, \emph{not} angular frequencies! This misuse of notation is fairly common in the literature on this topic so be careful when comparing sources.}
+\begin{displaymath}
+\tau_{\pm}^{-1} = W_{\pm} = C \frac{k_{\pm}k_0}{\gamma} \exp \left[-U_0 \right]
+\end{displaymath}
+where $\tau_{\pm}$ is the waiting time before hopping out of the left(-) or right(+) well, $k_{\pm}$ is the spring constant of the well,\footnote{What we mean is that the potential landscape near the center of well + can be written as $U_+(x) = \frac{1}{2}k_+x^2$ and similarly for $U_-(x)$.} $k_0$ is the spring constant of the barrier,\footnote{ie. near the center of the barrier we have $U(x) = -\frac{1}{2}k_0x^2$.} $U_0$ is the height of the potential barrier divided by $k_bT$, and $C$ is a constant. See figure 7a. From now on we will use the definition $Q_{\pm} = C \frac{k_{\pm}k_0}{\gamma}$ to tidy up notation so that
+\begin{displaymath}
+W_{\pm} = Q_{\pm} \exp \left[-U_0 \right].
+\end{displaymath}
+
+\subsection{Power Spectrum of the System}
+Reference 2 describes stochastic resonance in terms of the power spectrum of driven bistable system. There an expression is derived for the signal to noise ratio at the drive frequency as a function of noise power. We review this calculation here with slight modifications. We do this because the equations in the reference implicitly set various physical parameters, such as the coefficient of friction $\gamma$, to one. This makes the results contained therin difficult to apply to experiments. Our expressions will use only real physical quantities.
+
+The key step used in (2) is to approximate the transition rate using a series expansion in the drive force amplitude. This can be done for our system as we now show. The effect of an externally applied force can be understood as a change in the barrier heights seen by each potential well. See figure 7b. If a force is applied rightward with magnitude $F$ and the potential wells are a distance $c$ away from the center of the barrier, then the effect of the applied force is to decrease the barrier hight seen by the well on the left and increase the hight of the barrier seen by the well on the right. The Kramers transition rates become
+\begin{displaymath}
+W_{\pm} = Q_{\pm} \exp \left[-(U_0 \pm Fc/k_bT) \right] = Q_{\pm} \exp \left[-(U_0 \pm \epsilon) \right]
+\end{displaymath}
+where $\epsilon=Fc/k_bT$. If the force varies sinusoidally, $F(t)=\cos(\omega_s t)$, then the hopping rates vary in time as
+\begin{displaymath} W_{\pm}(t) = Q_{\pm} \exp \left[-(U_0 \pm \epsilon \cos (\omega_s t)) \right]
+\end{displaymath}
+If $\epsilon$ is small we can make an expansion for the transition rate. Doing so gives
+\begin{displaymath}
+W_{\pm}(t) = Q_{\pm} (e^{-U_0} \mp e^{-U_0} \epsilon \cos (\omega_s t)).
+\end{displaymath} 
+Reference 2 gives an expression for the power spectrum of the driven bistable system if the transition rate can be written in the form $W_{\pm} = \frac{1}{2}(\alpha_0 \mp \alpha_1 \epsilon \cos(\omega_s t))$. Comparing this to our previous equation we have $\alpha_0 = \alpha_1 = 2Q_{\pm}e^{-U_0}$.\footnote{These values for $\alpha_0$ and $\alpha_1$ differ from those found in reference 2. In the reference the transition rate for zero forcing is given to proportional to $e^{-2U_0}$ which leads to $\alpha_0=\frac{1}{2}\alpha_1$. We do not understand the use of this extra factor of 2 in the exponent and have omitted it.} The expression given in (2) for the power spectrum is
+\begin{displaymath}
+S(\Omega)=\left[ 1-\frac{\alpha_1^2\epsilon^2}{2(\alpha_0^2+\omega_s^2)}\right]\left[\frac{4c^2\alpha_0}{\alpha_0^2+\Omega^2}\right]+\frac{\pi c^2 \alpha_1^2 \epsilon^2}{\alpha_0^2+\omega_s^2}\delta (\Omega-\omega_s).
+\end{displaymath}
+The first term is a Lorentzian and represents the noise characteristic of this type of system. The second term with the delta function at the drive frequency is the signal. A very good discussion of the meaning of these terms is given in (2). If we put $\Omega = \omega_s$ and note that the first bracketed term is nearly equal to one, then dividing the signal and noise terms gives
+\begin{displaymath}
+\textrm{Signal to noise ratio at}~\omega_s = \frac{\pi \alpha_0 \epsilon^2}{4}
+\end{displaymath}
+Plugging in our values for $\alpha_0$ and $\epsilon$ gives
+\begin{displaymath}
+\textrm{Signal to noise ratio at}~\omega_s = \left[\frac{\pi Q_{\pm}c^2F^2}{2}\right]
+\frac{\exp\left[-E_0/k_bT\right]}{(k_bT)^2}
+\end{displaymath}
+where $E_0$ is the barrier height in units of energy, ie. $E_0=k_bTU_0$. I've used $E_0$ here rather than $U_0$ so that the dependence of the signal to noise ratio on temperature is clear. A plot showing the shape of this curve is given in figure 8. The signal to noise ratio has a maximum for $k_bT=E_0$. Note that while the value of the signal to noise ratio at this maximum depends on $F$ and $c$, the value of $T$ for which this maximum occurs does not.
+
+The discussion of (2) focuses on the effect of varying the noise power (temperature) in the system to find a maximum signal to noise ratio for nonzero noise. In our system variation of the noise could be acheived in several ways including variation of system temperature or variation of the bead size.\footnote{Stokes's formula for the coefficient of friction of a sphere in a fluid is $\gamma = 6 \pi \eta r$, where $\eta$ is the fluid viscosity and $r$ is the radius of the sphere. Einstein's relation for a diffusive particle says $D=k_bT/\gamma$. Combining these relations gives $D=\frac{k_bT}{6\pi\eta r}$ which shows that at fixed temperature increasing the bead radius decreases its coefficient of diffusion and hence the effective noise power.} Temperature control was deemed difficult for our setup and was not attempted. Varying the bead size would be undesirable as differently sized beads would experience different optical gradient forces for a given arrangement of the trapping lasers. This would make comparison of experiments done with differently sized beads difficult. For this reason we began our experiments with the idea in mind of investigating the dependance of the signal to noise ratio on drive frequency.
+
+In retrospect we should have guessed that changing the signal frequency would be uninteresting. The validity of our expression for the signal to noise ratio at the driving frequency depends only on the approximation that the term
+\begin{displaymath}
+\left[ 1-\frac{\alpha_1^2\epsilon^2}{2(\alpha_0^2+\omega_s^2)}\right]
+\end{displaymath}
+in the power spectrum is nearly unity. This assumption is valid for $\omega_s = 0$ because $\epsilon$ is taken to be $<<1$, and becomes more valid as $\omega_s$ is increased away from zero. Therefore the signal to noise ratio should show no interesting dependence on the drive frequency. More interesting, it turns out, is the dependence of the noisy part of the power spectrum to changing drive amplitude. We will discuss this in the section on experimental results.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Experimental Setup}
+
+\section{Optics}
+
+The basic laser tweezers setup we use is similar to that described in (3). We describe here only the differences.
+
+See figure 5 for a schematic of our optics. We use two linearly polarized lasers which we will refer to as ``A'' and ``B.'' Laser B is deflected from two mirrors before entering the main optics train. The second of these mirrors, the one closer to the beamsplitter, is in a conjugate plane to the back of the microscope objective and can be used to position the trap caused by laser B. Laser A cannot be steered. The polarizations of the lasers are rotated by ninety degrees from one another. This allows us to separate the beams after the sample cell with a polarizing beamsplitter and image each one separately onto a quadrant photodiode. Polarizers in front of each laser allow us to control the amount of power delivered to each optical trap. Note that this method of power adjustment causes no problems of mixing laser polarizations because both beams are passed through a polarizing beamsplitter before entering the optics train.
+
+When a bead is in a trap, say trap A, the total laser power entering photodiode A is greater than with no bead. We use this to our advantage in collecting the bead hopping signal. While the bead is hopping between traps we monitor the total power entering one of the photodiodes. This signal goes high when the bead is in trap A and low when the bead is in trap B. By fitting a square wave to this signal we obtain our desired hopping signal. See figure 6 for an example of such a trace.
+
+A camera is focused through two dichroic mirrors into the sample cell for video aquisition. The dichroic mirror directly in front of the camera is of the type that absorbs our laser light and passes all other frequencies. This is used simply to block images of the trapping lasers which are so bright that they wash out the desired bead image. The other mirror is used for beam control and is therefore of the type that reflects our laser light and passes other frequencies. See figure 5.
+
+\section{Sample Cell}
+
+Two types of cell are possible. We describe first a simple observation cell and then a more complicated flow cell which allows the sample to be injected in situ. An advantage of using the flow cell will be discussed.
+
+See figure 4 for a picture of the simple cell. We give here instructions for its construction.
+
+Fold a piece of parafilm over itself so that you are working with a doublethick sheet. Cut a one inch by one inch square from the sheet and then cut another smaller square from its center. Place this ``square annulus'' of parafilm on a cleaned microscope slide and place the slide on a hotplate at about 50 degrees C. The parafilm will melt and stick to the slide. Be sure that the parafilm is flat against the face of the slide. The handle of any metal tool works well to push the parafilm agains the slide. Once the parafilm has melted remove the slide from the hotplate and allow it to cool. Drop the sample of suspended beads into the center of the square hole in the parafilm making sure that the drop is not large enough that the liquid touches the parafilm. If the water does touch the parafilm it may be wicked out of the desired observation area. Clean a thin microscope coverslip, place it over the drop in the center of the parafilm square, and press it firmly against the parafilm so that it sticks. Don't try to melt the parafilm to the coverslip as the heat will cause bubbles to form in the sample. The sample is now ready to be inserted into the mount.
+
+This type of cell is less desireable because of the requirement that the liquid not touch the parafilm. This allows the water to move in the plane transverse to the laser beams which causes some complications in consideration of the applied driving force as discussed in the next chapter.
+
+We used the flow cell scheme in our experiments. The flow cell is constructed similarly to the simple cell but rather than constructing a square cavity for the bead suspension we form a channel, approximately two inches long and 5 millimeters wide through which a bead-water mixture may be passed. The bead suspension may be injected into this channel using thin tubes and syringes. The advantage to this scheme is that the microscope slide-parafilm-coverslip sandwich can be heated and melted together before the sample is present. This allows the sample to touch the walls of the channel without being wicked away by the parafilm because the parafilm has been melted to both the slide and the coverslip. This greatly simplifies the hydrodynamics of the water in the cell when the cell is oscillated. This point is discussed in the next chapter.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Calibration of the Translation Stage}
+
+\section{Applied Force by Stage Oscillation}
+
+The observation cell is attached directly to the stage and therefore moves in perfect unison with the stage. The bead, however, feels a drag force from the surrounding water, not from the cell itself, so to determine the force felt by the bead we must know the motion of the water. We make the simple assumption that the water moves in perfect unison with the observation cell. This assumption is justified by the fact that in the flow cell scheme the water is in contact with the cell walls and therefore cannot move out of sync with the cell. In the simple cell scheme where the water does not contact the cell walls it is necessary to consider hydrodynamic effects to determine the motion of the water. For a detailed discussion of this point and analysis of the relevent hydrodynamics see (1).
+
+Assuming that the water in the observation cell moves with the stage, oscillating the cell causes the bead to experience a periodic force due to viscous friction between the bead and surrounding water. This friction force is given by
+\begin{displaymath}
+f(t) = -\gamma (\dot{x}(t) - \dot{s}(t))
+\end{displaymath}
+where $x(t)$ is the bead position and $s(t)$ is the stage position. Taking the limit in which inertia can be ignored, which is valid for our overdamped system, it can be found that the force on the bead due to the stage oscillation is
+\begin{displaymath}
+F(t) = A \gamma \omega_s \cos(\omega_s t).
+\end{displaymath}
+
+The friction coefficient for a bead in water, $\gamma$, is known, and the driving frequency $\omega_s$ is an experimental parameter control, but A, the amplitude of the stage's oscillatory motion, is not directly known.  This is because the piezoelectric stage is controlled by an input voltage and the relationship between input voltage and stage displacement is not accurately known. Assuming that the relation between input voltage and displacement is linear we may write $A = R V_0$ where $R$ is the constant of proportionality between voltage and displacement.  Substituting this relation into our expression for the force on the bead we have,
+\begin{displaymath}
+F(t) = \gamma R V_0 \omega_s \sin(\omega_s t).
+\end{displaymath}
+In order to determine $F(t)$ we must measure $R$.
+
+This was done by mounting a mirror to the stage and using it as one arm of a Michelson style interferometer. See figure 2. The power entering a photodiode in the output port of the interferometer depends on the path length difference of the two interferometer arms as described in calculation B. Thus, by ramping through a range of applied voltages and monitoring the power delivered to the photodiode it is possible to determine the relation between applied voltage and stage displacement. This constitues a measurement of $R$. It is found (calculation B) that the power delivered to the photodiod should obey,
+\begin{displaymath}
+\textrm{Power}(V) \propto \cos(\frac{2VR}{\lambda})
+\end{displaymath}
+where $\lambda$ is the wavelength of the laser light used, and V is the voltage applied to the stage. Therefore, if we plot photodiode power versus stage voltage we should observe a sinusoidal wave with a period in voltage of $\frac{\pi \lambda}{R}$.
+
+See figure 3a for an example plot. The fact that the the plot is sinusoidal confirms our assumption that the relation between applied voltage and stage displacement is linear. Using this method we found the value of R to be 174nm per volt with a percent error equal to the percent error of the laser wavelength which we assume is less than one percent (this should be checked against information published by the manufacturer).\footnote{There may have been an error in the calculations that lead to the 174nm per volt value for $R$ quoted here. I will go back over this calculation in the next few days. If an error is found it will rescale all of the force values used in data analysis.}
+
+These measurements were done by ramping the applied stage voltage from zero to six volts while recording both the photodiode signal and stage voltage. 34 such ramps were executed and a value for $R$ was fit to the data from each ramp. The 34 values were then averaged to find a final value for $R$.
+
+Note that in our experiments we wish to use the stage to deliver a sinusoidal force to the trapped beads, requiring sinusoidal oscillation of the stage. A more useful characterization of the stage's response to input voltage would therefore be one done with the stage under the influence of an oscillating voltage rather than a ramped one. Included in calculation C is an analysis of how to carry out such a characterization.
+
+Some of the traces taken from the photodiode used in this calibration show a very strange behavior at the peaks of each period in the sinewave. See figure 3b. An initial guess at the origin of the periodic roughness of the trace could be that the mirror mounted on the translation stage was experiencing some sort of mechanical vibration at those points. This is unlikely because the voltage applied to the stage was ramped linearly in time, not oscillated. This roughness existed in only a small number of recorded traces and so we assume that its effect on the final value for $R$ is negligable. We also assume, for the same reason, that this roughness will not lead to unwanted forces on the trapped bead when we use the stage to deliver the drive force. The origin of this periodic roughness remains unknown.
+
+When the interferometer was set up we noticed that the interference pattern at the photodiode varied slowly in time, on timescales of approximately two seconds. Given this timescale we suppose that these variations were due to mechanical drifts in the various pieces of the interferometer such as the mirror mounts and beamsplitter
+mount. In order to ensure that these drifts did not corrupt the data used to determine $R$ it was important to collect the photodiode signal while sweeping through a range of applied stage voltages of approximately 2 volts (to obtain a complete period of the measured sinewave) in a time significantly less than this characteristic drift time.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Achieving Hopping}
+
+In this section we give a general description of how to achieve bead hopping between the two potential minima. Keep in mind this is the most reliable procedure that I have found. There may be, and indeed probably are, many ways to improve upon it.
+
+The signature of hopping is a square wave signal in the total power delivered to either of the photodiodes. If at any time one of the photodiode signals appears to vaguely resemble a square wave try adjusting the position of that photodiode as it is possible that the diode is not at the optimal position to detect the desired signal. While trying to achieve hopping it is best to be able to simultaneously monitor both photodiode voltages as well as video of the traps and beads.
+
+Begin with both polarizers set to maximize beam transmission and with the dichroic mirror in front of the camera. Without any beads near the trapping lasers adjust the translation stage along the z axis so that the laser foci are near the inside of the coverslip. It should be obvious when this happens because the foci become easily visible on the CCD camera. Turn the steering mirror of laser B until the two foci are approximately one quarter of a bead radius apart or slightly less. Now turn polarizer B to minimize the power in trap B. Move the stage until a bead is found at a suitable depth for trapping and trap it in laser A which is still set to full power. Turn polarizer A until the power is sufficiently low that the trapped bead's brownian motion is just large enough to be seen on camera. Now slowly turn polarizer B to increase the power in trap B. If the cosmos are correctly aligned you may get bead hopping at this point, but chances are that further tweaking will be necessary.
+
+A typical situation at this point is the following. The power in laser B is increased until the bead suddenly jumps from trap A into trap B where it remains without making further transitions. Blocking laser B causes the bead to hop back to A and subsequently unblocking B causes the bead to hop back into trap B. This would indicate that B is too strong for hopping to occurr. In this case a slight reduction of the power in trap B may be needed. Turn polarizer B to reduce the power in B and repeat the experiment of blocking the lasers to see which trap is stronger. If the bead always returns to one particular trap when both lasers are unblocked then either reduce that trap's power or increase the power of the other. If the position of the trapped bead with both lasers unblocked is midway between the two traps (and the bead is not hopping) try moving trap B slightly farther away from trap A.
+
+Beware that the hopping system is much more fragile than a bead in a single trap; whereas a bead trapped in a single laser will remain trapped even if the observation cell is bumped by a hand, a slight bump against the optics table may be enough to knock a bead out of the hopping potential.
+
+This strategy worked fairly reliably several times before, for an unknown reason, we ceased to be able to acheive hopping. I believe this to be due to some change in the optics train as several components were unintentionally moved at one point after a sucessful hopping experiment. We have not been able to achieve hopping since then. In our most sucessful hopping the potential minima were approximately 0.35$\mu$m apart as could be seen on video.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Results, Discussion, and Future Work}
+
+We sucessfully trapped a bead in the bistable potential and observed hopping. The signal from one photodiode was recorded and fit to a square wave a previously described. These square waves serve as our main dataset. Only one set of data was collected before the bead fell out of the bistable potential. Hopping was not acheived again after this data set was recorded.
+
+\section{Results}
+
+The system was driven as described above so that the applied force was known. Combining the known force with the spatial separation of the potential minima, estimated from video of the hopping bead, allowed us to determine the barrier height changes caused by the driving.
+
+The majority of recorded data was done at 13Hz drive frequency while the amplitude of drive was varied. The drive forces used ranged from approximately 3pN to approximately 60pN. Three additional data sets were collected at varying drive frequency but these have yet to be analyzed.
+
+An example data trace is shown in figure 6. The dark blue dots are the raw voltage coming from the photodiode, the light blue is a smoothed version of the raw data, and the red is the square wave fit. The square waves for each of our drive amplitudes was analysed in two ways.
+
+The length of time for which the square wave remains high or low corresponds to how long the bead remained in one of the potential wells. For a given trap the time spent in the trap before making a transition, called the ``dwell time'', should be exponentially distributed, as Kramers theory predicts that transitions out of a trap should be well modelled as a Poisson process. Figure 9 shows an example of such a histogram for our lowest drive amplitude of three piconewtons. The two colors correspond to the dwell times of the two different traps. For each trap the data forms a straight line on a log plot confirming that the process is Poissonian. Note, however, that the slopes of the lines are different, indicating that the characteristic Poisson rates for hopping out of the two wells are different. This indicates assymetry in the bead's potential landscape, one of the traps is deeper or very differently shaped than the other. A task in the future could be to eliminate this assymetry, but I think it would be even more interesting to extend the analysis found in (2) to the case of asymmetric wells and compare it to our data. A plot of average dwell time within one trap vs. force amplitude is shown in figure 13.
+
+We also generated power spectra of the square waves. The power spectrum for the 3pN drive is shown in figure 10. Compare it to figure 11 which shows the power spectrum in the case of a 51pN drive force (while the vertical axes in each of these plots are in arbitrary units the scale used in each one is the same). With the larger drive force there is a very clear peak at the drive fequency. This means that in the large force case transitions occured predominantly in sync with the external force, as is to expected. More interesting perhaps is that this also leads to a reduction of the noisy part of the spectrum. The highest noise peak in the 51pN case is three times less than the highest peak in the 3pN case. This can be understood fairly simply. If the drive force is high then the bead is likely to make a transition while the applied force is pointing in the direction appropriate for that transition. Once the bead has hopped it is very unlikely to make the return transition until the force changes direction. For this reason almost all of the power in the spectrum of the highly forced bead is at the drive frequency of 13Hz.
+
+What's really interesting is the dwell time histogram for the highly forced case. See figure 12. The data no longer indicates Poissonian statistics. Focus on the red data. The dwell time probability in the ``red'' trap has been increased for certain times and decreased for others. This looks a little mysterious until we notice that the distance in time between the raised portions of the data is almost exactly $.076$ seconds, or 1/13Hz. This suggests that the  raising and lowering of dwell time probability is explained by the same arguments made in the previous paragraph for why the noisy part of the power spectrum is supressed at high drive amplitudes. The bead is most likely to hop after a certain most likely dwell time when the external force favors the transition. If the bead does not make the transition before the force changes direction then it is very unlikely to hop until the next cycle of the drive force because the force changes direction and prevents hopping. Therefore, hopping probability is increased at a certain most likely time and at 1/13Hz intervals thereafter, and supressed at all intermittent times.
+
+We also looked at the effective barrier height seen by one of the traps as the force amplitude was varied. I was curious to see whether or not the effect of the sinusoidal drive force could be encapsulated by assuming that it simply changed the effective barrier height seen by each well. As stated in the theory section, the Kramers rate for hopping out of any one of the potential wells when the external force is constant is given by
+\begin{displaymath}
+\tau^{-1} = Q \exp\left[-(U_0 + \epsilon )\right].
+\end{displaymath}
+where we've left out the + or - symbol because we're dealing with one trap. Dividing this expression for two different values of $\epsilon$, say $\epsilon_1$ and $\epsilon_2$ and assuming that forcing does not change the prefactor $Q$ we get
+\begin{displaymath}
+\epsilon_2-\epsilon_1 = \ln \left[ \frac{\tau_2}{\tau_1} \right] .
+\end{displaymath}
+If we fix $\tau_1$ to be the $\tau$ for 3pN drive force and allowed $\tau_2$ to vary we should see a straight line in a plot of the above equation. Figure 14 shows our plot. It is not a straight line and so the effect of the sinusoidal drive cannot be understood as a change in the effective barrier height.
+
+\section{Future Work}
+
+One major piece of information missing from this analysis is an map of the potential landscape seen by the hopping bead. We intended to collect this information by taking video of the hopping bead. From the video a histogram of bead positions in space can be compiled. We could then use Boltzmann's equation for the probability of being at position \textbf{r}
+\begin{displaymath}
+P(\textrm{\textbf{r}}) = e^{-U(\textrm{\textbf{r}})/k_bT}
+\end{displaymath}
+to obtain the effective potential $U(\textrm{\textbf{r}})$ at all points in space. Unfortunately we have been unable to analyze our videos as of yet. Future work should focus on mapping the potential landscape as it would provide an enormous amount of fundamental information about the bead dynamics which could be compared with the data discussed above. In particular, knowledge of the shape of the potential wells would afford us exact knowledge of the theoretical Kramers rates which could then be used to further understand our data.
+
+Another useful project would be to set up a temperature control for the system so that we could study the effect of varying noise power. Members of the DuFresne lab have some experience manufacturing metal sample slides which may be useful if such a project is attempted.
+
+
+\newpage
+\begin{center}
+{\bf REFERENCES}
+\end{center}
+
+\begin{itemize}
+\item[1.] Simon F. Tolic-Norrelykke, \textit{Calibration of optical tweezers with positional detection in the back focal plane}, Review of Scientific Instruments 77, 103101 (2006).\\This paper discusses hydrodynamic effects within the sample cell so that the force experienced by a bead by an applied oscillation of the translation stage may be accurately predicted.
+\item[2.] Bruce McNamara and Kurt Wiesenfeld, \textit{Theory of Stochastic Resonance}, Physical Review A, vol 39, No. 9, May 1 1989.\\This very accessable paper develops the theory of stochastic resonance from scratch. The discussion of derived formulae is excellent. Comparing this paper to other sources may be confusing as the authors set various physical parameters to 1 without warning. When comparing formulas always check units to see whether or not there are invisible constants floating around.
+\item[3.] Stephan P. Smith and Sameer R. Bhalotra,\textit{Inexpensive optical tweezers for undergraduate laboratories}, American Journal of Physics vol 67, No. 1, January 1999.\\A good paper for the basics of optical trapping. The authors also give a useful procedure for aligning the optics.
+\item[4.] J. Lennon, ``All You Need is Love''.
+\item[5.] H. A. Kramers, \textit{Brownian Motion in a Field of Force and the Diffusion Model of Chemical Reactions}, Physica VII, No. 4, April 1940.\\This is Kramers's original paper. It is very difficult and the notation and terminology are outdated. Use it only for historical interest, or if you simply want to see how one of the old masters worked.
+\end{itemize}
+
+\newpage
+\begin{center}
+{\bf Calculation B: Expected photodiode signal for stage calibration}
+\end{center}
+
+Here we calculate the dependance of the photodiode signal on the voltage input to the translation stage. Call the interferometer arm with the fixed mirror ``arm 1'' and the interferometer arm with the mirror attached to the stage ``arm 2.'' The field incident on the photodiode is the sum of the fields from each arm of the interferometer. Using phasors, we can write the field due to the beam which passes through arm 1 as $E_1 = E_0 e^{i\phi_1}$ and the field due to the beam which passes through arm 2 as $E_2=E_0 e^{i\phi_2}$, where $E_0$ is the electric field amplitude in each arm (we're assuming a 50/50 beamsplitter), and the $\phi$'s are the phases of the field after travelling through each arm. For each arm $\phi_{1,2} = 2\pi l_{1,2} / \lambda$ where $l_{1,2}$ is the pathlength of the arm and $\lambda$ is the wavelength of the laser light. The photodiode signal $P$ is then given by
+\begin{displaymath}
+P = \kappa \frac{1}{2} \textrm{Re}((E_1+E_2)^{*}(E_1+E_2))
+\end{displaymath}
+where $\kappa$ is the efficiency of the photodetector. If we move the translation stage by a distance $\delta$ then the path length in arm 2 changes by $2\delta$. Thus we write $l_2 = l_1 + 2\delta$ where $\delta$. Plugging this into our previous equation gives
+\begin{eqnarray*}
+P &=& \kappa \frac{1}{2} \textrm{Re}(|E_1|^2+|E_2|^2+E_1^*E_2+E_2^*E_1) \\
+P &=& \kappa \frac{1}{2} \textrm{Re}(2E_0^2+2E_0^2 \cos (\frac{4\pi \delta}{\lambda})) \\
+P &=& \kappa E_0^2 (1 + \cos (\frac{4\pi \delta}{\lambda})) \\
+\end{eqnarray*}
+If we assume as in the text that $\delta$ depends linearly on the voltage input to the stage as $\delta = RV$ then we have
+\begin{displaymath}
+P = \kappa E_0^2 (1 + \cos (\frac{4\pi R V}{\lambda}))
+\end{displaymath}
+which means that the photodiode signal plotted against stage voltage should be sinusoidal with a period on the voltage axis of
+\begin{displaymath}
+\textrm{Period in voltage} = \frac{\lambda}{2R}.
+\end{displaymath}
+
+\newpage
+\begin{center}
+{\bf Calculation C: Photodiode response when the stage is oscillated}
+\end{center}
+
+Suppose we wish to calibrate the translation stage while it is being oscillated so that our calibration more closely matches the conditions under which the stage will be used.  Then using the notations established in calculation B we have
+\begin{displaymath}
+P = \kappa E_0^2 (1+\cos (\frac{4\pi \delta}{\lambda}))
+\end{displaymath}
+where again $P$ is the signal coming out of the photodiode, $\kappa$ is the efficiency of the photodiode, $\delta$ is the displacement of the stage, and $\lambda$ is the wavelength of the laser. If the stage is oscillated by an input voltage sinewave with angular frequency $\omega$ and amplitude $V_0$ then we have $\delta(t)= RV_0\cos (\omega t)$ where again $R$ is the proportionality constant between stage input voltage and stage displacement. Plugging this in gives
+\begin{displaymath}
+P = \kappa E_0^2 (1+\cos \left[ \frac{4\pi R V_0}{\lambda} \cos (\omega t) \right]).
+\end{displaymath}
+If we define $z = 4 \pi R V_0/ \lambda$ and $\phi=\omega t$, and write the outermost cosine in terms of exponentials, we can write our expression for the photodiode signal as
+\begin{displaymath}
+p = \kappa E_0^2 (1+\frac{1}{2}\left[ e^{iz\cos(\phi)}+e^{-iz\cos(\phi)} \right] ).
+\end{displaymath}
+A very useful identity to use here is\footnote{See www.mathworld.wolfram.com under the Jacobi-Anger Expansion}
+\begin{displaymath}
+e^{iz\cos (\phi )} = J_0(z) + 2\sum_{n=1}^{\infty} i^n J_n(z) \cos(n\phi).
+\end{displaymath}
+Using this identity in our expression for the photodiode signal gives
+\begin{eqnarray*}
+P &=& \kappa E_0^2 (1 + \frac{1}{2}\left[J_0(z)+J_0(-z)+2\sum_{n=1}^{\infty} i^n \cos(n\phi) (J_n(z)+J_n(-z)) \right ])\\
+P &=& \kappa E_0^2 (1 + \frac{1}{2}\left[2J_0(z) + 4\sum_{n~\textrm{even}} i^n \cos(n\phi) J_n(z) \right ] ).
+\end{eqnarray*}
+Now let $2m=n$ and re-index the sum to get
+\begin{eqnarray*}
+P &=& \kappa E_0^2 (1 + \left[ J_0(z) + 2\sum_{m=1}^{\infty} i^{2m} \cos (2m\phi ) J_{2m}(z) \right ]) \\
+P &=& \kappa E_0^2 \left(1 + \left[ J_0(4\pi RV_0/\lambda ) + 2\sum_{m=1}^{\infty} (-1)^m J_{2m}(4\pi R/\lambda ) \cos (2m \omega t) \right ] \right)
+\end{eqnarray*}
+which is in the form of a Fourier series. Therefore, if the stage is oscillated and the photodiode signal collectd for some period of time, then the value of $R$ can be extracted by Fourier transforming the photodiode signal and matching the Fourier components to those predicted here. Note that like the formula presented in calculation B, this analysis is insensitive to the photodiode efficiency $\kappa$ and small variations in time thereof.
+
+\end{document}

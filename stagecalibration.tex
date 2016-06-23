@@ -1,0 +1,44 @@
+\documentclass{report}
+
+\begin{document}
+
+
+\chapter{Calibration of the Translation Stage}
+
+\section{Applied Force by Stage Oscillation}
+
+The observation cell is attached directly to the stage and therefore moves in perfect unison with the stage. The bead, however, feels a drag force from the surrounding water, not from the cell itself, so to determine the force felt by the bead we must know the motion of the water. We make the simple assumption that the water moves in perfect unison with the observation cell. This assumption is justified by the fact that in the flow cell scheme the water is in contact with the cell walls and therefore cannot move out of sync with the cell. In the simple cell scheme where the water does not contact the cell walls it is necessary to consider hydrodynamic effects to determine the motion of the water. For a detailed discussion of this point and analysis of the relevent hydrodynamics see (1).
+
+Assuming that the water in the observation cell moves with the stage, oscillating the cell causes the bead to experience a periodic force due to viscous friction between the bead and surrounding water. This friction force is given by
+\begin{displaymath}
+f(t) = -\gamma (\dot{x}(t) - \dot{s}(t))
+\end{displaymath}
+where $x(t)$ is the bead position and $s(t)$ is the stage position. Taking the limit in which inertia can be ignored, which is valid for our overdamped system, it can be found that the force on the bead due to the stage oscillation is
+\begin{displaymath}
+F(t) = A \gamma \omega_s \cos(\omega_s t).
+\end{displaymath}
+
+The friction coefficient for a bead in water, $\gamma$, is known, and the driving frequency $\omega_s$ is an experimental parameter control, but A, the amplitude of the stage's oscillatory motion, is not directly known.  This is because the piezoelectric stage is controlled by an input voltage and the relationship between input voltage and stage displacement is not accurately known. Assuming that the relation between input voltage and displacement is linear we may write $A = R V_0$ where $R$ is the constant of proportionality between voltage and displacement.  Substituting this relation into our expression for the force on the bead we have,
+\begin{displaymath}
+F(t) = \gamma R V_0 \omega_s \sin(\omega_s t).
+\end{displaymath}
+In order to determine $F(t)$ we must measure $R$.
+
+This was done by mounting a mirror to one arm of an interferometer and us using it as one arm of a Michelson style interferometer. See figure 2. The power entering a photodiode in the output port of the interferometer depends on the path length difference of the two interferometer arms as described in calculation B. Thus, by ramping through a range of applied voltages and monitoring the power delivered to the photodiode it is possible to determine the relation between applied voltage and stage displacement. This constitues a measurement of $R$. It is found (calculation B) that the power delivered to the photodiod should obey,
+\begin{displaymath}
+\textrm{Power}(V) \propto \cos(\frac{4\pi VR}{\lambda})
+\end{displaymath}
+where $\lambda$ is the wavelength of the laser light used, and V is the voltage applied to the stage. Therefore, if we plot photodiode power versus stage voltage we should observe a sinusoidal wave with a period in voltage of $\frac{\lambda}{2R}$.
+
+See figure 3 for an example plot. The fact that the the plot is sinusoidal confirms our assumption that the relation between applied voltage and stage displacement is linear. Using this method we found the value of R to be 174nm per volt with a percent error equal to the percent error of the laser wavelength which we assume is less than one percent (this should be checked against information published by the manufacturer).\footnote{There may have been an error in the calculations that lead to the 174nm per volt value for $R$ quoted here. I will go back over this calculation in the next few days. If an error is found it will rescale all of the force values used in data analysis.}
+
+These measurements were done by ramping the applied stage voltage from zero to six volts while recording both the photodiode signal and stage voltage. 34 such ramps were executed and a value for $R$ was fit to the data from each ramp. The 34 values were then averaged to find a final value for $R$.
+
+Note that in our experiments we wish to use the stage to deliver a sinusoidal force to the trapped beads, requiring sinusoidal oscillation of the stage. A more useful characterization of the stage's response to input voltage would therefore be one done with the stage under the influence of an oscillating voltage rather than a ramped one. Included in calculation C is an analysis of how to carry out such a characterization.
+
+Some of the traces taken from the photodiode used in this calibration show a very strange behavior at the peaks of each period in the sinewave. See figure 3b. An initial guess at the origin of the periodic roughness of the trace could be that the mirror mounted on the translation stage was experiencing some sort of mechanical vibration at those points. This unlikely because the voltage applied to the stage was ramped linearly in time, not oscillated. This roughness existed in only a small number of recorded traces and so we assume that its effect on the final value for $R$ is negligable. We also assume, for the same reason, that this roughness will not lead to unwanted forces on the trapped bead when we use the stage to deliver the drive force. The origin of this periodic roughness remains unknown.
+
+When the interferometer was set up we noticed that the interference pattern at the photodiode varied slowly in time, on timescales of approximately two seconds. Given this timescale we suppose that these variations were due to mechanical drifts in the various pieces of the interferometer such as the mirror mounts and beamsplitter
+mount. In order to ensure that these drifts did not corrupt the data used to determine $R$ it was important to collect the photodiode signal while sweeping through a range of applied stage voltages of approximately 2 volts (to obtain a complete period of the measured sinewave) in a time significantly less than this characteristic drift time.
+
+\end{document}

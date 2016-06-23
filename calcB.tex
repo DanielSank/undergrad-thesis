@@ -1,0 +1,23 @@
+\documentclass{report}
+\begin{document}
+
+Here we calculate the dependance of the photodiode signal on the voltage input to the translation stage. Call the interferometer arm with the fixed mirror ``arm 1'' and the interferometer arm with the mirror attached to the stage ``arm 2.'' The field incident on the photodiode is the sum of the fields from each arm of the interferometer. Using phasors, we can write the field due to the beam which passes through arm 1 as $E_1 = E_0 e^{i\phi_1}$ and the field due to the beam which passes through arm 2 as $E_2=E_0 e^{i\phi_2}$, where $E_0$ is the electric field amplitude in each arm (we're assuming a 50/50 beamsplitter), and the $\phi$'s are the phases of the field after travelling through each arm. For each arm $\phi_{1,2} = 2\pi l_{1,2} / \lambda$ where $l_{1,2}$ is the pathlength of the arm and $\lambda$ is the wavelength of the laser light. The photodiode signal $P$ is then given by
+\begin{displaymath}
+P = \kappa \frac{1}{2} \textrm{Re}((E_1+E_2)^{*}(E_1+E_2))
+\end{displaymath}
+where $\kappa$ is the efficiency of the photodetector. If we move the translation stage by a distance $\delta$ then the path length in arm 2 changes by $2\delta$. Thus we write $l_2 = l_1 + 2\delta$ where $\delta$. Plugging this into our previous equation gives
+\begin{eqnarray*}
+P &=& \kappa \frac{1}{2} \textrm{Re}(|E_1|^2+|E_2|^2+E_1^*E_2+E_2^*E_1) \\
+P &=& \kappa \frac{1}{2} \textrm{Re}(2E_0^2+2E_0^2 \cos (\frac{4\pi \delta}{\lambda})) \\
+P &=& \kappa E_0^2 (1 + \cos (\frac{4\pi \delta}{\lambda})) \\
+\end{eqnarray*}
+If we assume as in the text that $\delta$ depends linearly on the voltage input to the stage as $\delta = RV$ then we have
+\begin{displaymath}
+P = \kappa E_0^2 (1 + \cos (\frac{4\pi R V}{\lambda}))
+\end{displaymath}
+which means that the photodiode signal plotted against stage voltage should be sinusoidal with a period on the voltage axis of
+\begin{displaymath}
+\textrm{Period in voltage} = \frac{\lambda}{2R}.
+\end{displaymath}
+
+\end{document}

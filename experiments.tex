@@ -1,0 +1,39 @@
+\documentclass{report}
+\begin{document}
+
+\chapter{Results, Discussion, and Future Work}
+
+We sucessfully trapped a bead in the bistable potential and observed hopping. The signal from one photodiode was recorded and fit to a square wave a previously described. These square waves serve as our main dataset. Only one set of data was collected before the bead fell out of the bistable potential. Hopping was not acheived again after this data set was recorded.
+
+\section{Results}
+
+The system was driven as described above so that the applied force was known. Combining the known force with the spatial separation of the potential minima, estimated from video of the hopping bead, allowed us to determine the barrier height changes caused by the driving.
+
+The majority of recorded data was done at 13Hz drive frequency while the amplitude of drive was varied. The drive forces used ranged from approximately 3pN to approximately 60pN. Three additional data sets were collected at varying drive frequency but these have yet to be analyzed.
+
+An example data trace is shown in figure 6. The dark blue dots are the raw voltage coming from the photodiode, the light blue is a smoothed version of the raw data, and the red is the square wave fit. The square waves for each of our drive amplitudes was analysed in two ways.
+
+The length of time for which the square wave remains high or low corresponds to how long the bead remained in one of the potential wells. For a given trap the time spent in the trap before making a transition, called the ``dwell time'', should be exponentially distributed, as Kramers theory predicts that transitions out of a trap should be well modelled as a Poisson process. Figure 9 shows an example of such a histogram for our lowest drive amplitude of three piconewtons. The two colors correspond to the dwell times of the two different traps. For each trap the data forms a straight line on a log plot confirming that the process is Poissonian. Note, however, that the slopes of the lines are different, indicating that the characteristic Poisson rates for hopping out of the two wells are different. This indicates assymetry in the bead's potential landscape, one of the traps is deeper or very differently shaped than the other. A task in the future could be to eliminate this assymetry, but I think it would be even more interesting to extend the analysis found in (2) to the case of asymmetric wells and compare it to our data. A plot of average dwell time within one trap vs. force amplitude is shown in figure 13.
+
+We also generated power spectra of the square waves. The power spectrum for the 3pN drive is shown in figure 10. Compare it to figure 11 which shows the power spectrum in the case of a 51pN drive force (while the vertical axes in each of these plots are in arbitrary units the scale used in each one is the same). With the larger drive force there is a very clear peak at the drive fequency. This means that in the large force case transitions occured predominantly in sync with the external force, as is to expected. More interesting perhaps is that this also leads to a reduction of the noisy part of the spectrum. The highest noise peak in the 51pN case is three times less than the highest peak in the 3pN case. This can be understood fairly simply. If the drive force is high then the bead is likely to make a transition while the applied force is pointing in the direction appropriate for that transition. Once the bead has hopped it is very unlikely to make the return transition until the force changes direction. For this reason almost all of the power in the spectrum of the highly forced bead is at the drive frequency of 13Hz.
+
+What's really interesting is the dwell time histogram for the highly forced case. See figure 12. The data no longer indicates Poissonian statistics. Focus on the red data. The dwell time probability in the ``red'' trap has been increased for certain times and decreased for others. This looks a little mysterious until we notice that the distance in time between the raised portions of the data is almost exactly $.076$ seconds, or 1/13Hz. This suggests that the  raising and lowering of dwell time probability is explained by the same arguments made in the previous paragraph for why the noisy part of the power spectrum is supressed at high drive amplitudes. The bead is most likely to hop after a certain most likely dwell time when the external force favors the transition. If the bead does not make the transition before the force changes direction then it is very unlikely to hop until the next cycle of the drive force because the force changes direction and prevents hopping. Therefore, hopping probability is increased at a certain most likely time and at 1/13Hz intervals thereafter, and supressed at all intermittent times.
+
+We also looked at the effective barrier height seen by one of the traps as the force amplitude was varied. I was curious to see whether or not the effect of the sinusoidal drive force could be encapsulated by assuming that it simply changed the effective barrier height seen by each well. As stated in the theory section the Kramers rate for hopping out of any one of the potential wells when the external force is constant is given by
+\begin{displaymath}
+\tau^{-1} = Q \exp\left[-(U_0 + \epsilon )\right].
+\end{displaymath}
+where we've left out the + or - symbol because we're dealing with one trap. Dividing this expression for two different values of $\epsilon$, say $\epsilon_1$ and $\epsilon_2$ and assuming that forcing does not change the prefactor $Q$ we get
+\begin{displaymath}
+\epsilon_2-\epsilon_1 = \ln \left[ \frac{\tau_2}{\tau_1} \right] .
+\end{displaymath}
+If we fix $\tau_1$ to be the $\tau$ for 3pN drive force and allowed $\tau_2$ to vary we should see a straight line in a plot of the above equation. Figure 13 shows our plot. It is not a straight line and so the effect of the sinusoidal drive cannot be understood as a change in the effective barrier height.
+
+\section{Future Work}
+
+One major piece of information missing from this analysis is an map of the potential landscape seen by the hopping bead. We intended to collect this information by taking video of the hopping bead. From the video a histogram of bead positions in space can be compiled. We could then use Boltzmann's equation for the probability of being at position \textbf{r}
+\begin{displaymath}
+P(\textrm{\textbf{r}} = e^{-U(\textrm{\textbf{r}})/k_bT}
+\end{displaymath}
+to obtain the effective potential $U(\textrm{\textbf{r}})$ at all points in space. Unfortunately we have been unable to analyze our videos as of yet. Future work should focus on mapping the potential landscape as it would provide an enormous amount of fundamental information about the bead dynamics which could be compared with the data discussed above. In particular knowledge of the shape of the potential wells would afford us exact knowledge of the theoretical Kramers rates which could then be used to further understand our data.
+\end{document}

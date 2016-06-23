@@ -1,0 +1,64 @@
+\documentclass{report}
+\begin{document}
+
+\chapter{Theory}
+
+\section{What is Stochastic Resonance?}
+
+Stochastic resonance is a phenomenon characteristic of any externally driven, bistable system with internal damping and thermal (random) fluctuations. See figure 1 for a general schematic. We regard the input to the system to be the driving force and the output to be the coordinate of the system: $+c$ for the right well and $-c$ for the left (we are assuming that the system never spends an appreciable amount of time at positions between potential wells, an assusption to which we will return when analyzing our experimental data). In the absence of a driving force (signal=zero) the system makes thermally excited transitions over the potential barrier. Transitions, at all frequencies, that occur in this case of zero driving constitute the ``noise.'' When the driving is nonzero transitions at the driving frequency constitute our ``signal.'' Now, in the \emph{absence} of thermal fluctuations, if the damped system resides in one of the potential minima and is driven only very weakly, then it will never make a transition over the potential barrier. The signal is therefore zero. The introduction of thermal fluctuations on top of the weak driving force allows for the system's kinetic energy to occasionally attain high enough values to make transitions over the barrier. Therefore, increasing the noise in this case \emph{increases} the signal. For a given drive frequency and amplitude define the signal to noise ratio as the system response at the drive frequency with the drive turned on divided by the system response at the drive frequency with the drive turned off. It is clear then that the signal to noise ratio actually increases as the noise power is increased up from zero. Of course, as the noise power is increased past a certain point the signal to noise ratio will decline. Therefore, there must be some nonzero intermediate value of the noise power for which the signal to noise ratio of the system is maximized. This slightly un-intuitive situation is referred to as stochastic resonance. Mathematical details are discussed in a very accessable paper by McNamara and Wiesenfeld $^{(2)}$.
+
+\section{Optical Tweezers System for Stochastic Resonance}
+
+Optical traps could provide a means of studying stochastic resonance as all of the necessary ingredients are automatically in place. Our system includes two laser beams which are focused through a microscope objective to form two optical traps inside a glass observation cell filled with water. See figure 4. Polystyrene beads are suspended in the cell and experience optical gradient forces due to two focused laser beams.$^3$ When the two laser foci are placed closely together the bead experiences a bistable potential landscape in space. Damping and noise are provided by the the water, and a periodic driving force is supplied by vibrating a piezoelectrically transduced translation stage which supports the observation cell.
+
+\section{Dynamics}
+
+\subsection{Kramers Hopping}
+Newton's equation of motion for a trapped bead may be written as a Lengevin equation,
+\begin{displaymath}
+m\ddot{x}(t) = -\frac{dU}{dx} - \gamma \dot{x}(t) + \eta(t)
+\end{displaymath}
+where $U(x)$ is the potential felt by the bead due to the trapping lasers, $\gamma$ is the coefficient of friction of the bead in water, and $\eta(t)$ represents random force kicks supplied by water molecules. $\frac{m}{\gamma}$ sets a characteristic relaxation time for the bead and is on the order of $10^{-8}$ seconds for our system. This timescale is much shorter than any other relevent timescale in our experiments so we are working in the highly overdamped regime. Kramers showed in (5) that in this regime the average time that the system waits in a potential well before making a thermally excited trasition over the barrier is,
+\begin{displaymath}
+\tau_{\pm}^{-1} = W_{\pm} = C \frac{k_{\pm}k_0}{\gamma} \exp \left[-U_0 \right]
+\end{displaymath}
+where $\tau_{\pm}$ is the waiting time before hopping out of the left(-) or right(+) well, $k_{\pm}$ is the spring constant of the well, $k_0$ is the spring constant of the barrier, $U_0$ is the height of the potential barrier divided by $k_bT$, and $C$ is a constant. See figure 1. When reading Kramers's original paper beware that he uses the symbol $\omega$ to denote ``cycles per second'' frequencies, \emph{not} angular frequencies! This misuse of notation is fairly common in the literature on this topic so be careful when comparing sources. From now on we will use the definition $Q_{\pm} = C \frac{k_{\pm}k_0}{\gamma}$ to tidy up notation.
+
+\subsection{Power Spectrum of the System}
+Reference 2 describes stochastic resonance in terms of the power spectrum of driven bistable system. There an expression is derived for the signal to noise ratio at the drive frequency as a function of noise power. We review this calculation here with slight modifications. We do this because the equations in the reference implicitly set various physical parameters, such as the coefficient of friction $\gamma$, to one. This makes the results contained therin difficult to apply to experiments. Our expressions will use only real physical quantities.
+
+The key step used in (2) is to approximate the transition rate using a series expansion in the drive force amplitude. This can be done for our system as we now show. The effect of an externally applied force can be understood as a change in the barrier heights seen by each potential well. See figure 7. If a force is applied rightward with magnitude $F$ and the potential wells are a distance $c$ away from the center of the barrier, then the effect of the applied force is to decrease the barrier hight seen by the well on the left and increase the hight of the barrier seen by the well on the right. The Kramers transition rates become
+\begin{displaymath}
+W_{\pm} = Q_{\pm} \exp \left[-(U_0 \pm Fc/k_bT) \right] = Q_{\pm} \exp \left[-(U_0 \pm \epsilon) \right]
+\end{displaymath}
+where $\epsilon=Fc/k_bT$. If the force varies sinusoidally, $F(t)=\cos(\omega_s t)$, then the hopping rates vary in time as
+\begin{displaymath} W_{\pm}(t) = Q_{\pm} \exp \left[-(U_0 \pm \epsilon \cos (\omega_s t)) \right]
+\end{displaymath}
+If $\epsilon$ is small we can make an expansion for the transition rate. Doing so gives
+\begin{displaymath}
+W_{\pm}(t) = Q_{\pm} (e^{-U_0} \mp e^{-U_0} \epsilon \cos (\omega_s t)).
+\end{displaymath} 
+Reference 2 gives an expression for the power spectrum of the driven bistable system if the transition rate can be written in the form $W_{\pm} = \frac{1}{2}(\alpha_0 \mp \alpha_1 \epsilon \cos(\omega_s t))$. Comparing this to our previous equation we have $\alpha_0 = \alpha_1 = 2Q_{\pm}e^{-U_0}$.\footnote{These values for $\alpha_0$ and $\alpha_1$ differ from those found in reference 2. In the reference the transition rate for zero forcing is given to proportional to $e^{-2U_0}$ which leads to $\alpha_0=\frac{1}{2}\alpha_1$. We do not understand the use of this extra factor of 2 in the exponent and have omitted it.} The expression given in (2) for the power spectrum is
+\begin{displaymath}
+S(\Omega)=\left[ 1-\frac{\alpha_1^2\epsilon^2}{2(\alpha_0^2+\omega_s^2)}\right]\left[\frac{4c^2\alpha_0}{\alpha_0^2+\Omega^2}\right]+\frac{\pi c^2 \alpha_1^2 \epsilon^2}{\alpha_0^2+\omega_s^2}\delta (\Omega-\omega_s).
+\end{displaymath}
+If we put $\Omega = \omega_s$ and note that the first bracketed term is nearly equal to one, then dividing the signal and noise terms gives
+\begin{displaymath}
+\textrm{Signal to noise ratio at}~\omega_s = \frac{\pi \alpha_0 \epsilon^2}{4}
+\end{displaymath}
+Plugging in our values for $\alpha_0$ and $\epsilon$ gives
+\begin{displaymath}
+\textrm{Signal to noise ratio at}~\omega_s = \left[\frac{\pi Q_{\pm}c^2F^2}{2}\right]
+\frac{\exp\left[-E_0/k_bT\right]}{(k_bT)^2}
+\end{displaymath}
+where $E_0$ is the barrier height in units of energy, ie. $E_0=k_bTU_0$. I've used $E_0$ here rather than $U_0$ so that the dependence of the signal to noise ratio on temperature is clear. A plot showing the shape of this curve is given in figure 8. The signal to noise ratio has a maximum for $k_bT=E_0$. Note that while the value of the signal to noise ratio at this maximum depends on $F$ and $c$, the value of $T$ for which this maximum occurs does not.
+
+The discussion of (2) focuses on the effect of varying the noise power (temperature) in the system to find a maximum signal to noise ratio for nonzero noise. In our system variation of the noise could be acheived in several ways including variation of system temperature or variation of the bead size.\footnote{Stokes's formula for the coefficient of friction of a sphere in a fluid is $\gamma = 6 \pi \eta r$, where $\eta$ is the fluid viscosity and $r$ is the radius of the sphere. Einstein's relation for a diffusive particle says $D=k_bT/\gamma$. Combining these relations gives $D=\frac{k_bT}{6\pi\eta r}$ which shows that at fixed temperature increasing the bead radius decreases its coefficient of diffusion and hence the effective noise power.} Temperature control was deemed difficult for our setup and was not attempted. Varying the bead size would be undesirable as differently sized beads would experience different optical gradient forces for a given arrangement of the trapping lasers. This would make comparison of experiments done with differently sized beads difficult. For this reason we performed our experiments with the idea in mind of investigating the dependance of the signal to noise ratio on drive frequency.
+
+In retrospect we should have guessed that changing the signal frequency would be uninteresting. The validity of our expression for the signal to noise ratio at the driving frequency depends only on the approximation that the term
+\begin{displaymath}
+\left[ 1-\frac{\alpha_1^2\epsilon^2}{2(\alpha_0^2+\omega_s^2)}\right]
+\end{displaymath}
+in the power spectrum is nearly unity. This assumption is valid for $\omega_s = 0$ because $\epsilon$ is taken to be $<<1$, and becomes more valid as $\omega_s$ is increased away from zero. Therefore the signal to noise ratio should show no interesting dependence on the drive frequency. More interesting, it turns out, is the dependence of the noisy part of the power spectrum to changing drive frequency and amplitude. We will discuss this in the section on experimental results.
+
+\end{document}

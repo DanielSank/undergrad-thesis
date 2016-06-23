@@ -1,0 +1,31 @@
+\section{Applied Force by Stage Oscillation}
+
+In this section we show how to calculate the driving force experienced by a bead if the piezoelectric stage is oscillated along the axis connecting the potential minima at frequency $\omega_s$ and with a displacement amplitude of $A$.
+
+The observation cell is attached directly to the stage and therefore moves in perfect unison with the stage. The bead, however, feels a drag force from the surrounding water, not from the cell itself, so to determine the force felt by the bead we must know the motion of the water. We make the simple assumption that the water moves in perfect unison with the observation cell. This assumption is justified by the  The hydrodynamic analysis justifying this assumption is discussed in (1), but we may also mention that since our observation cell is closed on the sides perpendicular to the axis of stage motion
+
+Assuming that the water in the observation cell moves with the stage, oscillating the cell causes the bead to experience a periodic force due to viscous friction between the bead and surrounding water. This friction force is given by
+\begin{displaymath}
+f(t) = -\gamma (\dot{x}(t) - \dot{s}(t))
+\end{displaymath}
+where $x(t)$ is the bead position and $s(t)$ is the stage position. Newton's equation of motion for the bead is then
+\begin{displaymath}
+m \ddot{x}(t) = f(t) = -\gamma (\dot{x}(t) - \dot{s}(t)).
+\end{displaymath}
+Assuming sinusoidal motion of the stage, $s(t) = A \cos(\omega_s t)$, the steady state solution to Newton's equation is (see calculation A),
+\begin{displaymath}
+x(t) = A \frac{\cos(\omega_s t) + \epsilon \sin(\omega_s t)}{1 + \epsilon^2}
+\end{displaymath}
+where $\epsilon = \omega_s \tau$ and $\tau$ is the natural relaxation time of the bead in its aqueous environment, $\tau = \frac{\gamma}{m}$.  For the beads used in our experiment this relaxation time is on the order of $10^{-8}$ seconds so $\epsilon$ can be taken as negligably small. This simplifies our solution to Newton's equation to
+\begin{displaymath}
+x(t) = A \cos(\omega_s t).
+\end{displaymath}
+The force on the bead $F(t)$, due to the stage oscillation, is then given by
+\begin{displaymath}
+F(t) = m\ddot{x}(t) = mA\omega_s^2 \cos (\omega_s t).
+\end{displaymath}
+For reasons that I do not yet understand it has been insisted to me that the correct expression for the force due to stage oscillation is
+\begin{displaymath}
+F(t) = A \gamma \omega_s \cos(\omega_s t)
+\end{displaymath}
+which clearly differs from my expression. The latter expression was used in analyzing data, but I have included my expression in the hope that someone will be able to determine why my result is incorrect. Once more, we use the expression $F(t) = A \gamma \omega_s \cos(\omega_s t)$ in all subsequent discussion.

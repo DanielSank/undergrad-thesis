@@ -1,0 +1,33 @@
+\documentclass{report}
+\begin{document}
+
+
+Suppose we wish to calibrate the translation stage while it is being oscillated so that our calibration more closely matches the conditions under which the stage will be used.  Then using the notations established in calculation B we have
+\begin{displaymath}
+P = \kappa E_0^2 (1+\cos (\frac{4\pi \delta}{\lambda}))
+\end{displaymath}
+where again $P$ is the signal coming out of the photodiode, $\kappa$ is the efficiency of the photodiode, $\delta$ is the displacement of the stage, and $\lambda$ is the wavelength of the laser. If the stage is oscillated by an input voltage sinewave with angular frequency $\omega$ and amplitude $V_0$ then we have $\delta(t)= RV_0\cos (\omega t)$ where again $R$ is the proportionality constant between stage input voltage and stage displacement. Plugging this in gives
+\begin{displaymath}
+P = \kappa E_0^2 (1+\cos \left[ \frac{4\pi R V_0}{\lambda} \cos (\omega t) \right]).
+\end{displaymath}
+If we define $z = 4 \pi R V_0/ \lambda$ and $\phi=\omega t$, and write the outermost cosine in terms of exponentials, we can write our expression for the photodiode signal as
+\begin{displaymath}
+p = \kappa E_0^2 (1+\frac{1}{2}\left[ e^{iz\cos(\phi)}+e^{-iz\cos(\phi)} \right] ).
+\end{displaymath}
+A very useful identity to use here is\footnote{See www.mathworld.wolfram.com under the Jacobi-Anger Expansion}
+\begin{displaymath}
+e^{iz\cos (\phi )} = J_0(z) + 2\sum_{n=1}^{\infty} i^n J_n(z) \cos(n\phi).
+\end{displaymath}
+Using this identity in our expression for the photodiode signal gives
+\begin{eqnarray*}
+P &=& \kappa E_0^2 (1 + \frac{1}{2}\left[J_0(z)+J_0(-z)+2\sum_{n=1}^{\infty} i^n \cos(n\phi) (J_n(z)+J_n(-z)) \right ])\\
+P &=& \kappa E_0^2 (1 + \frac{1}{2}\left[2J_0(z) + 4\sum_{n~\textrm{even}} i^n \cos(n\phi) J_n(z) \right ] ).
+\end{eqnarray*}
+Now let $2m=n$ and re-index the sum to get
+\begin{eqnarray*}
+P &=& \kappa E_0^2 (1 + \left[ J_0(z) + 2\sum_{m=1}^{\infty} i^{2m} \cos (2m\phi ) J_{2m}(z) \right ]) \\
+P &=& \kappa E_0^2 \left(1 + \left[ J_0(4\pi RV_0/\lambda ) + 2\sum_{m=1}^{\infty} (-1)^m J_{2m}(4\pi R/\lambda ) \cos (2m \omega t) \right ] \right)
+\end{eqnarray*}
+which is in the form of a Fourier series. Therefore, if the stage is oscillated and the photodiode signal collectd for some period of time, then the value of $R$ can be extracted by Fourier transforming the photodiode signal and matching the Fourier components to those predicted here. Note that like the formula presented in calculation B, this analysis is insensitive to the photodiode efficiency $\kappa$ and small variations in time thereof.
+
+\end{document}
